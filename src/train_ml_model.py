@@ -5,8 +5,8 @@ from datetime import datetime, timedelta
 from sklearn.ensemble import RandomForestClassifier
 import joblib
 
-API_KEY = "Xvt1DJzDokBfqQth"
-API_SECRET = "rfu1GldGcY657Rl5nP60yGEW0fcq6GIx"
+# API credentials now loaded from environment variables
+# See data_collector.py for the secure implementation
 BASE_URL = "https://livescore-api.com/api-client"
 
 def get_historical_fixtures(days=30):
