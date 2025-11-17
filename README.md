@@ -32,11 +32,11 @@ Our system **protects user capital** by rejecting low-confidence bets, ensuring 
 
 ## 🏆 **Current Performance Metrics**
 
-| Sport | Confidence Rate | Coverage | Data Source | Status |
-|-------|----------------|----------|-------------|---------|
-| 🏈 **American Football** | **82%** | NFL + NCAA | ESPN API | ✅ Operational |
-| 🏀 **NBA** | **78%** | All NBA Teams | ESPN API | ✅ Operational |
-| ⚽ **Soccer** | **94%** | 7 Major Leagues | ESPN + LiveScore Ready | ✅ Operational |
+| Sport | H2H Game Count | Coverage | Data Source | Status |
+|-------|----------------|----------|-------------|---------||
+| 🏈 **American Football** | **4-8 games** | NFL + NCAA | ESPN API (Free) | ✅ Operational |
+| 🏀 **NBA** | **8-10 games** | All NBA Teams | ESPN API (Free) | ✅ Operational |
+| ⚽ **Soccer** | **5+ games (3yr)** | 7 Major Leagues | ESPN API (Free) | ✅ Operational |
 
 *All systems operational with real-time H2H data collection*
 
@@ -109,7 +109,7 @@ This system evolved through multiple phases of development to create the ultimat
 ✅ **System Cleanup** - Removed 23 temporary test/debug files  
 ✅ **Clean Architecture** - Organized project structure with essential files only  
 ✅ **Professional Documentation** - 7 comprehensive MD files covering all aspects  
-✅ **Launch-Ready Status** - Immediate deployment capability with 100% real ESPN data
+✅ **Launch-Ready Status** - Immediate deployment capability with 100% real ESPN data (Free)
 ✅ **Unicode Fix** - All emoji encoding issues resolved for Windows compatibility
 
 ## 🚀 Complete System Capabilities
@@ -122,10 +122,10 @@ This system evolved through multiple phases of development to create the ultimat
 - **Intelligent Decision Making**: Only recommends bets worth risking money on
 
 ### ⚽ **Soccer Intelligence**
-- **ESPN Soccer API Integration**: Real-time fixtures and historical data (free tier)
+- **ESPN Soccer API Integration**: Real-time fixtures and historical data (100% free)
 - **Multi-Season H2H Analysis**: 3-year historical lookback for comprehensive patterns
 - **7 Major Leagues**: Premier League, La Liga, Bundesliga, Serie A, Ligue 1, Champions League, Europa League
-- **Current Form Analysis**: Recent team performance and trends
+- **LiveScore Ready**: Dual-mode system can switch to LiveScore when subscription added
 - **Enhanced H2H Analysis**: Deep pattern recognition in team matchups (5+ games minimum)
 
 ### 🏀 **NBA Intelligence**
@@ -157,11 +157,7 @@ C:/Users/debol/AI-Agents/.venv/Scripts/activate
 # Install dependencies
 pip install -r requirements.txt
 
-# Configure API credentials
-cp .env.example .env
-# Edit .env with your LiveScore API credentials
-
-# Run the main multi-sport system
+# Run the main multi-sport system (100% Free ESPN API - No API keys required!) (100% Free ESPN API)
 python working_multi_sport_predictor.py
 ```
 
@@ -217,35 +213,35 @@ cd soccer && python predictor.py
 
 ### 🎯 Phase 5: Production Optimization
 1. **FastAPI Professional Service** - REST API with Swagger documentation
-2. **System Cleanup** - Removed unnecessary files (22 → 13 files)
+2. **System Cleanup** - Removed 23 temporary test/debug files
 3. **Complete Documentation** - System overview with detailed flow charts
-4. **Launch-Ready Status** - Immediate deployment capability
+4. **Launch-Ready Status** - Immediate deployment capability with 100% free ESPN API
 
 ## 🏗️ Clean System Architecture (After Optimization)
 
 ```
 gamepredict_ai_agent/
-├── .env                              # 🔐 API credentials (LiveScore)
+├── .env                              # 🔐 API credentials (Optional: OpenAI for AI enhancement)
 ├── .env.example                      # 📋 Configuration template  
 ├── requirements.txt                  # 📦 Python dependencies
 ├── README.md                         # 📚 Complete documentation
 ├── PROJECT_ROADMAP.md                # 🎯 Development roadmap
 │
-├── multi_sport_predictor.py          # 🏆 Main console interface
+├── working_multi_sport_predictor.py  # 🏆 Main console interface
 ├── api_service.py                    # 🚀 Professional FastAPI service
-├── multi_sport_api.py                # 🌐 Alternative API interface
+├── check_tomorrow_games.py           # 🔍 Utility to check future games
 │
-├── football/                         # ⚽ Football prediction system
+├── soccer/                           # ⚽ Soccer prediction system
 │   ├── __init__.py                   # 📦 Package initialization
-│   ├── data_collector.py             # 📡 LiveScore API integration
-│   ├── predictor.py                  # 🧠 H2H + ML + Corner analysis
-│   └── agent.py                      # 🎯 Football-specific endpoints
+│   ├── espn_soccer_h2h_collector.py  # 📡 ESPN API H2H collector
+│   ├── espn_soccer_predictor.py      # 🧠 ESPN-based predictions
+│   └── dual_mode_soccer_predictor.py # 🔄 ESPN/LiveScore dual mode
 │
 ├── nba/                              # 🏀 NBA prediction system  
 │   ├── __init__.py                   # 📦 Package initialization
-│   ├── data_collector.py             # 📡 ESPN API integration (free)
+│   ├── nba_h2h_collector.py          # 📡 ESPN API H2H collector (free)
 │   ├── predictor.py                  # 🧠 H2H + popular markets
-│   └── agent.py                      # 🎯 NBA-specific endpoints
+│   └── nba_betting_odds_api.py       # 💰 Betting lines API (optional)
 │
 ├── data/                             # 📊 Data storage
 │   └── matches.csv                   # 🗃️ Historical data
@@ -261,10 +257,11 @@ gamepredict_ai_agent/
 ### 🎯 Key System Components
 
 #### 🏆 **Core Prediction Files**
-- `multi_sport_predictor.py` - Main system with high-confidence filtering  
+- `working_multi_sport_predictor.py` - Main system with high-confidence filtering  
 - `api_service.py` - Professional FastAPI service for monetization
-- `football/predictor.py` - Enhanced football prediction with corners
+- `american_football/predictor.py` - NFL/NCAA prediction with H2H analysis
 - `nba/predictor.py` - NBA system with popular market focus
+- `soccer/espn_soccer_predictor.py` - Soccer prediction with ESPN API
 
 #### 🤖 **Agentic AI Enhancement (Ready)**
 - `agentic_ai_enhancement.py` - Full GPT-4 integration framework
@@ -278,12 +275,12 @@ gamepredict_ai_agent/
 
 ## 🏅 Autonomous Sports Intelligence
 
-### ⚽ **Football (Soccer)**
+### ⚽ **Soccer**
 - **Status**: ✅ **Fully Autonomous & Operational**
-- **API**: Live Score API (Real-time fixtures)
-- **Intelligence**: H2H analysis, goal predictions, match outcomes
-- **Features**: Home/Away form, head-to-head patterns, confidence scoring
-- **Endpoint**: `/football/todays-games`, `/football/predictions`
+- **API**: ESPN API (Free, real-time fixtures) + LiveScore Ready
+- **Intelligence**: H2H analysis, goal predictions, match outcomes, BTTS
+- **Features**: 3-year H2H lookback, 5+ game minimum, dual-mode ready
+- **Endpoint**: `/soccer/predictions`
 
 ### 🏀 **NBA Basketball**  
 - **Status**: ✅ **Fully Autonomous & Operational**
