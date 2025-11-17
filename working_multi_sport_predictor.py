@@ -18,34 +18,34 @@ class WorkingMultiSportPredictor:
     
     def __init__(self):
         """Initialize all working sport predictors"""
-        print("🚀 WORKING MULTI-SPORT AI PREDICTION SYSTEM")
-        print("🎯 Real H2H + AI Agentic Enhancement")
+        print("WORKING MULTI-SPORT AI PREDICTION SYSTEM")
+        print("Real H2H + AI Agentic Enhancement")
         print("=" * 60)
         
         # Initialize American Football System
-        print("\n🏈 AMERICAN FOOTBALL SYSTEM - Real H2H Data")
+        print("\nAMERICAN FOOTBALL SYSTEM - Real H2H Data")
         print("-" * 45)
         try:
             from american_football.predictor import AmericanFootballPredictor
             self.american_football_predictor = AmericanFootballPredictor()
-            print("✅ American Football system initialized (ESPN API + Real H2H)")
+            print("[OK] American Football system initialized (ESPN API + Real H2H)")
         except Exception as e:
-            print(f"❌ American Football system error: {e}")
+            print(f"[ERROR] American Football system error: {e}")
             self.american_football_predictor = None
         
         # Initialize NBA System  
-        print("\n🏀 NBA SYSTEM - Real H2H Data")
+        print("\nNBA SYSTEM - Real H2H Data")
         print("-" * 35)
         try:
             from nba.predictor import ReliableNBAPredictor
             self.nba_predictor = ReliableNBAPredictor()
-            print("✅ NBA system initialized (ESPN API + Real H2H)")
+            print("[OK] NBA system initialized (ESPN API + Real H2H)")
         except Exception as e:
-            print(f"❌ NBA system error: {e}")
+            print(f"[ERROR] NBA system error: {e}")
             self.nba_predictor = None
         
         # Initialize Soccer System - Dual Mode (ESPN + LiveScore Ready)
-        print("\n⚽ SOCCER SYSTEM - Dual Mode Ready")
+        print("\nSOCCER SYSTEM - Dual Mode Ready")
         print("-" * 35)
         try:
             sys.path.append(os.path.join(os.path.dirname(__file__), 'soccer'))
@@ -55,20 +55,20 @@ class WorkingMultiSportPredictor:
             livescore_available = os.getenv('LIVESCORE_API_KEY') and os.getenv('LIVESCORE_API_SECRET')
             
             if livescore_available:
-                print("🎯 LiveScore credentials found - using premium mode")
+                print("LiveScore credentials found - using premium mode")
                 self.soccer_predictor = DualModeSoccerPredictor(use_livescore=True)
             else:
-                print("🎯 Using ESPN mode (LiveScore ready when you add credentials)")
+                print("Using ESPN mode (LiveScore ready when you add credentials)")
                 self.soccer_predictor = DualModeSoccerPredictor(use_livescore=False)
                 
-            print("✅ Dual-mode Soccer system initialized (ESPN + LiveScore Ready)")
+            print("[OK] Dual-mode Soccer system initialized (ESPN + LiveScore Ready)")
         except Exception as e:
-            print(f"❌ Soccer system error: {e}")
+            print(f"[ERROR] Soccer system error: {e}")
             self.soccer_predictor = None
         
         print("\n" + "=" * 60)
-        print("🎯 All systems ready for high-confidence predictions!")
-        print("💰 75% confidence threshold protects customer money")
+        print("All systems ready for high-confidence predictions!")
+        print("75% confidence threshold protects customer money")
         print("=" * 60)
     
     def get_all_high_confidence_predictions(self) -> Dict:
@@ -303,14 +303,14 @@ if __name__ == "__main__":
     
     # Test health status
     health = predictor.get_health_status()
-    print(f"\n📊 System Health: {health}")
+    print(f"\nSystem Health: {health}")
     
     # Test getting all predictions
-    print(f"\n🎯 Getting all high-confidence predictions...")
+    print(f"\nGetting all high-confidence predictions...")
     all_predictions = predictor.get_all_high_confidence_predictions()
     
     summary = all_predictions["summary"]
-    print(f"📊 Games Analyzed: {summary['total_games_analyzed']}")
-    print(f"🎯 High-Confidence Picks: {summary['high_confidence_picks']}")
+    print(f"Games Analyzed: {summary['total_games_analyzed']}")
+    print(f"High-Confidence Picks: {summary['high_confidence_picks']}")
     
-    print("\n✅ Working Multi-Sport System Ready!")
+    print("\n[OK] Working Multi-Sport System Ready!")

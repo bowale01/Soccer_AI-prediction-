@@ -429,8 +429,8 @@ class ESPNSoccerH2HCollector:
         
         goals_trend = []
         for match in recent_matches:
-            total = match.get('home_score', 0) + match.get('away_score', 0)
-            total = match.get('team1_score', total) + match.get('team2_score', 0)
+            # Use team1_score and team2_score (standardized format)
+            total = match.get('team1_score', 0) + match.get('team2_score', 0)
             goals_trend.append(total)
         
         avg_recent_goals = sum(goals_trend) / len(goals_trend)
