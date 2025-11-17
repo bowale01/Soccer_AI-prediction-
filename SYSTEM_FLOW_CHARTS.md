@@ -43,15 +43,13 @@ flowchart TD
 
 ```mermaid
 flowchart LR
-    subgraph "Data Sources"
-        A1[🏈 ESPN NFL/NCAA API]
-        A2[🏀 ESPN NBA API]
-        A3[⚽ ESPN Soccer API]
-        A4[💰 LiveScore API]
-        A5[🎯 The-Odds API]
+    subgraph "Data Sources (100% ESPN API)"
+        A1[🏈 ESPN NFL/NCAA API - 4-8 games]
+        A2[🏀 ESPN NBA API - 8-10 games]
+        A3[⚽ ESPN Soccer API - 5+ games, 3yr history]
     end
     
-    subgraph "H2H Collectors"
+    subgraph "H2H Collectors (Real Data)"
         B1[🏈 American Football H2H]
         B2[🏀 NBA H2H Collector]
         B3[⚽ Soccer H2H Collector]
@@ -63,16 +61,15 @@ flowchart LR
         C3[⚽ Dual-Mode Soccer Predictor]
     end
     
-    subgraph "AI Enhancement Modules"
-        D1[🤖 American Football Agentic AI]
-        D2[🤖 NBA Agentic AI]
-        D3[🤖 Soccer Contextual AI]
+    subgraph "AI Enhancement Modules (Framework Ready)"
+        D1[🤖 American Football AI - Framework]
+        D2[🤖 NBA AI - Framework]
+        D3[🤖 Soccer AI - Framework]
     end
     
     A1 --> B1
     A2 --> B2
     A3 --> B3
-    A4 --> B3
     
     B1 --> C1
     B2 --> C2

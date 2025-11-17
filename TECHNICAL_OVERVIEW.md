@@ -96,8 +96,9 @@ python api_service.py
 🏗️ System Architecture:
 
 working_multi_sport_predictor.py    # Main AI system
-├── American Football Predictor     # ESPN API + H2H analysis
-├── NBA Predictor                   # ESPN API + team patterns  
+├── American Football Predictor     # ESPN API + H2H analysis (4-8 games)
+├── NBA Predictor                   # ESPN API + H2H analysis (8-10 games)
+├── Soccer Predictor                # ESPN API + H2H analysis (5+ games, 3-year history)  
 ├── Soccer Predictor (Dual-Mode)    # ESPN + LiveScore ready
 └── API Service                     # FastAPI professional interface
 
