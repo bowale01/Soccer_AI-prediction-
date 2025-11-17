@@ -14,10 +14,18 @@ import sys
 # Add NBA module path for imports
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
+# Import H2H collector (separate from optional AI imports)
+try:
+    from nba_h2h_collector import NBAH2HCollector
+    H2H_COLLECTOR_AVAILABLE = True
+except ImportError as e:
+    H2H_COLLECTOR_AVAILABLE = False
+    print(f"⚠️ NBA H2H Collector not available: {e}")
+
+# Import optional Agentic AI components
 try:
     from agentic_ai_enhancer import NBAAugenticAIEnhancer
     from nba_betting_odds_api import NBABettingOddsAPI
-    from nba_h2h_collector import NBAH2HCollector
     AGENTIC_AI_AVAILABLE = True
     print("🤖 NBA Agentic AI Enhancement loaded successfully!")
 except ImportError:
@@ -45,9 +53,9 @@ class ReliableNBAPredictor:
         try:
             self.nba_h2h_collector = NBAH2HCollector()
             print("📊 Real NBA H2H data collector initialized")
-        except:
+        except Exception as e:
             self.nba_h2h_collector = None
-            print("⚠️ NBA H2H collector initialization failed")
+            print(f"⚠️ NBA H2H collector initialization failed: {e}")
         
         # Popular NBA betting markets focus
         self.popular_markets = ["OVER", "Halftime OVER", "Moneyline Win"]

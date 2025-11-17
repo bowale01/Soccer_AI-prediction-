@@ -132,7 +132,8 @@ class NBAH2HCollector:
                 games = []
                 for event in events:
                     # Only include completed games
-                    if event.get('status', {}).get('type', {}).get('completed'):
+                    status_type = event.get('competitions', [{}])[0].get('status', {}).get('type', {})
+                    if status_type.get('completed', False):
                         games.append(event)
                 
                 return games
@@ -202,7 +203,14 @@ class NBAH2HCollector:
             for competitor in competitors:
                 team_id = int(competitor.get('team', {}).get('id', 0))
                 team_name = competitor.get('team', {}).get('displayName', '')
-                score = int(competitor.get('score', 0))
+                
+                # Handle score - can be string or dict
+                score_val = competitor.get('score', 0)
+                if isinstance(score_val, dict):
+                    score = int(score_val.get('value', 0))
+                else:
+                    score = int(score_val) if score_val else 0
+                
                 is_home = competitor.get('homeAway') == 'home'
                 
                 if team_id == home_id:
@@ -243,6 +251,8 @@ class NBAH2HCollector:
             
         except Exception as e:
             print(f"Error parsing NBA game data: {e}")
+            import traceback
+            traceback.print_exc()
             return None
     
     def _normalize_nba_team_name(self, team_name: str) -> str:

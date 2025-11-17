@@ -129,8 +129,11 @@ class AmericanFootballH2HCollector:
                 games = []
                 for event in events:
                     # Only include completed games
-                    if event.get('status', {}).get('type', {}).get('completed'):
-                        games.append(event)
+                    competitions = event.get('competitions', [])
+                    if competitions:
+                        status_type = competitions[0].get('status', {}).get('type', {})
+                        if status_type.get('completed', False):
+                            games.append(event)
                 
                 return games
             
@@ -199,7 +202,14 @@ class AmericanFootballH2HCollector:
             for competitor in competitors:
                 team_id = int(competitor.get('team', {}).get('id', 0))
                 team_name = competitor.get('team', {}).get('displayName', '')
-                score = int(competitor.get('score', 0))
+                
+                # Handle score - ESPN can return dict or int
+                score_val = competitor.get('score', 0)
+                if isinstance(score_val, dict):
+                    score = int(score_val.get('value', 0))
+                else:
+                    score = int(score_val) if score_val else 0
+                    
                 is_home = competitor.get('homeAway') == 'home'
                 
                 if team_id == home_id:
